@@ -1,15 +1,10 @@
-package chapter_01
+package main
 
 import (
 	"fmt"
 )
 
-func main() {
-	// print_numbers_version_one()
-	print_numbers_version_two()
-}
-
-func print_numbers_version_one() {
+func even_numbers_v1() {
 	number := 2
 	for number <= 100 {
 		// If number is even, print it:
@@ -20,7 +15,7 @@ func print_numbers_version_one() {
 	}
 }
 
-func print_numbers_version_two() {
+func even_numbers_v2() {
 	number := 2
 	for number <= 100 {
 		fmt.Println(number)
