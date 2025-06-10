@@ -1,0 +1,35 @@
+1. For an array containing 100 elements, provide the number of steps the
+   following operations would take:
+- Reading
+  1 step
+- Searching for a value not contained within the array
+  100 steps
+- Insertion at the beginning of the array
+  100 (shifting to right) + 1 (inserting) = 101 steps
+- Insertion at the end of the array
+  1 step
+- Deletion at the beginning of the array
+  1 (deletion) + 99 (moving to fill the gap) = 100 steps
+- Deletion at the end of the array
+  1 step
+
+=For an array-based set containing 100 elements, provide the number of
+steps the following operations would take=
+- Reading :: 1 step
+- Searching for a value not contained within the array :: 100 steps
+- Insertion of a new value at the beginning of the set :: 100
+  (searching for duplicates) + 100 (shifting to right) + 1 (insertion)
+  = 201 steps
+- Insertion of a new value at the end of the set :: 100 (searching for
+  duplicates) + 1 (insertion) = 101 steps
+- Deletion at the beginning of the set :: 1 (deletion) + 99 (moving to
+  left) = 100 steps
+- Deletion at the end of the set :: 1 step
+
+Normally the search operation in an array looks for the first instance
+of a given value. But sometimes we may want to look for every instance
+of a given value. For example, say we want to count how many times the
+value “apple” is found inside an array. How many steps would it take
+to find all the “apples”? Give your answer in terms of N.
+
+A: N steps, as we need to do complete search until the end of the array
