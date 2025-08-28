@@ -1,0 +1,59 @@
+1. N^2
+2. N
+
+* Question 3
+
+#+begin_src js
+function twoSum(array) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length; j++) {
+      if (i !== j && array[i] + array[j] == 10) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+#+end_src
+
+- Best Case :: Where the first and second numbers add upto 10, O(1)
+- Average Case :: When the two numbers are somewhere in the middle of
+  the array.
+- Worst Case :: Where there are no two number that add upto 10. Its
+  Notation: ~N x (2N -2) = O(N^2)~
+* Question 4
+
+#+begin_src js
+
+function containsX(string) {
+  foundX = false;
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === "X") {
+      foundX = true;
+    }
+  }
+  return foundX;
+}
+
+#+end_src
+
+- Time Complexity in Big O :: Whether the letter "X" present or not,
+  it takes O(N) steps, to return something.
+
+#+begin_src js
+
+function containX_v2(string) {
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === "X") {
+        return true;
+    }
+  }
+  return false;
+}
+
+#+end_src
+
+- Reasoning :: When it finds the letter "X", it breaks out.
+  - O(1) in Best Case
+  - O(1) in Average Case
+  - O(N) in Worst Case
