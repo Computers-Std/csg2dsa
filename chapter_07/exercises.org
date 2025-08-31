@@ -1,0 +1,136 @@
+* Question 1
+#+begin_src ruby
+def one_hundered_sum (array)
+  left_index = 0
+  right_index = array.length - 1
+
+  while left_index < array.length / 2
+    if array[left_index] + array[right_index] != 100
+      return false
+    end
+    left_index += 1
+    right_index += 1
+  end
+  return true
+end
+
+#+end_src
+
+- Time Complexity :: At minimum this algorithm takes N/2 steps, So it
+  BigO is *O(N)*
+
+* Question 2
+#+begin_src ruby
+def merge(array_1, array_2)
+  new_array = []
+  array_1_pointer = 0
+  array_2_pointer = 0
+
+  # Run the loop until we've reached end of both arrays:
+  while array_1_pointer < array_1.length ||
+        array_2_pointer < array_2.length
+
+    # If we already reached the end of the first array
+    # add item from second array
+    if !array_1[array_1_pointer]
+      new_array << array_2[array_2_pointer]
+      array_2_pointer += 1
+    # If already reached the end of the second array
+    # add item from first array
+    else if !array_2[array_2_pointer]
+      new_array << array_1[array_1_pointer]
+      array_1_pointer += 1
+    # If the current number in first array is less than current number
+    # in second array, add from first array
+    else if array_1[array_1_pointer] < array_2[array_2_pointer]
+      new_array << array_1[array_1_pointer]
+      array_1_pointer += 1
+    else
+      new_array << array_2[array_2_pointer]
+      array_2_pointer += 1
+    end
+  end
+  return new_array
+end
+
+#+end_src
+
+- Time Complexity :: M+N -> ~2N -> O(N)
+
+* Question 3
+#+begin_src ruby
+def find_needle(needle, haystack)
+  needle_index = 0
+  haystack_index = 0
+
+  while haystack_index < haystack.index
+    if needle[needle_index] == haystack[haystack_index]
+      found_needle = true
+
+      while needle_index < needle.length
+        if needle[needle_index] != haystack[haystack_index + needle_index]
+          found_needle = false
+          break
+        end
+        needle_index += 1
+      end
+      return true if found_needle
+      needle_index = 0
+    end
+    haystack_index += 1
+  end
+  return fasle
+end
+
+#+end_src
+
+- Time Complexity :: O(N * M), For every iteration of M, it takes
+  three iterations of N
+
+* Question 4
+
+#+begin_src ruby
+def largest_product(array)
+  largest_product_so_far = array[0] * array[1] * array[2]
+  i = 0
+  while i < array.length
+    j = i + 1
+    while j < array.length
+      k = j + 1
+      while k < array.length
+        if array[i] * array[j] * array[k] > largest_product_so_far
+          largest_product_so_far = array[i] * array[j] * array[k]
+        end
+        k += 1
+      end
+      j += 1
+    end
+    i += 1
+  end
+  return largest_product_so_far
+end
+#+end_src
+
+- Time Complexity :: N x N-1 x N-2 => O(N^3)
+
+* Question 5
+#+begin_src ruby
+def pick_name(resumes)
+  eliminate = "top"
+
+  while resumes.length > 1
+    if eliminate == "top"
+      resumes = resumes[resumes.length / 2, resumes.length - 1]
+      eliminate = "bottom"
+    else if eliminate = "bottom"
+      resumes = resumes[0, resumes.length / 2]
+      eliminate = "top"
+    end
+  end
+  return resumes[0]
+end
+
+#+end_src
+
+- Time Complexity :: O(logN)
+  The number of steps decreases logarithmically with each iteration
